@@ -1,7 +1,7 @@
 {
 	"name": "MonitoRSS",
 	"description": "Discord RSS bot with customizable feeds",
-	"website": "https://github.com/synzen/MonitoRSS",
+	"website": "https://github.com/yozorasa/MonitoRSS-Clone",
 	"logo": "https://discordapp.com/assets/d36b33903dafb0107bb067b55bdd9cbc.svg",
 	"keywords": [
 		"discord",
@@ -15,13 +15,15 @@
 	"env": {
 		"DRSS_START": {
 			"description": "Determine what parts of MonitoRSS to start. Input bot to only start the bot, web to start only the web, or bot-web to start both. If using web, use the Heroku web dyno, NOT the worker dyno to accept requests. To keep the web dyno from sleeping, use something like uptimerobot (free app).",
-			"value": "bot"
+			"value": "bot-web"
 		},
 		"DRSS_BOT_TOKEN": {
-			"description": "Discord Bot token. Get it here: https://discordapp.com/developers/applications/."
+			"description": "Discord Bot token. Get it here: https://discordapp.com/developers/applications/.",
+			"value": "ODE0NTQxMTY1MzE1NjIwOTY0.YDfWkw.ommlytVXKv7oMAKAq8_1wJMxQ7s"
 		},
 		"DRSS_DATABASE_URI": {
-			"description": "MongoDB database URI. Cannot be a folder URI (data would not persist across reboots)."
+			"description": "MongoDB database URI. Cannot be a folder URI (data would not persist across reboots).",
+			"value": "mongodb+srv://yuchi:qwer1234@cluster0.sr77k.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
 		},
 		"DRSS_BOT_PREFIX": {
 			"description": "Prefix for Discord commands.",
@@ -29,7 +31,8 @@
 		},
 		"DRSS_BOT_OWNERIDS": {
 			"description": "Owner ID(s), separate multiple with a comma.",
-			"required": false
+			//"required": false
+			"value":"7905"
 		},
 		"DRSS_FEEDS_REFRESHRATEMINUTES": {
 			"description": "Refresh rate of RSS feeds. A value that is too low may lead to your IP blocked for some sites.",
@@ -37,27 +40,33 @@
 		},
 		"DRSSWEB_DATABASE_URI": {
 			"description": "REQUIRED IF DRSS_START IS web OR bot-web. MongoDB database URI. Must be the same as DRSS_DATABASE_URI.",
-			"required": false
+			//"required": false
+			"value": "mongodb+srv://yuchi:qwer1234@cluster0.sr77k.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
 		},
 		"DRSSWEB_ADMINIDS": {
 			"description": "REQUIRED IF DRSS_START IS web OR bot-web. Web admin ID(s), separate multiple with commas.",
-			"required": false
+			//"required": false
+			"value": "7905"
 		},
 		"DRSSWEB_BOT_TOKEN": {
 			"description": "REQUIRED IF DRSS_START IS web OR bot-web. Use the same token as DRSS_BOT_TOKEN.",
-			"required": false
+			//"required": false
+			"value": "ODE0NTQxMTY1MzE1NjIwOTY0.YDfWkw.ommlytVXKv7oMAKAq8_1wJMxQ7s"
 		},
 		"DRSSWEB_BOT_REDIRECTURI": {
 			"description": "REQUIRED IF DRSS_START IS web OR bot-web. Insert the domain name appending /authorize. Example on heroku: https://APPNAME.herokuapp.com/authorize. Make sure the exact url is also set set under the application OAuth2 tab under redirects.",
-			"required": false
+			//"required": false
+			"value":"https://discord-monitorss.herokuapp.com/authorize"
 		},
 		"DRSSWEB_BOT_CLIENTID": {
 			"description": "REQUIRED IF DRSS_START IS web OR bot-web. App ID that can be found on the general information page at https://discordapp.com/developers/applications/. This should only contain numbers.",
-			"required": false
+			//"required": false
+			"value": "814541165315620964"
 		},
 		"DRSSWEB_BOT_CLIENTSECRET": {
 			"description": "REQUIRED IF DRSS_START IS web OR bot-web. Found on your app page at Discord Developers at https://discordapp.com/developers/applications/",
-			"required": false
+			//"required": false
+			"value": "eYwie6zIN6W-KwamzydHajFo4weMmNu1"
 		}
 	},
 	"formation": {
